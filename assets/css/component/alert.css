@@ -1,0 +1,23 @@
+#alert {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  margin-left: -220px;
+  /* margin: 0 auto; */
+  width: 440px;
+  height: 76px;
+  background-color: #650aa8;
+  /* border-radius: 8px; */
+  border-radius: 0px 0px 8px 8px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 73px;
+  transform: translate(0px, -76px);
+  transition: 0.15s;
+  transition-timing-function: ease-in-out;
+}
+
+.alert-display {
+  transform: translate(0px, 0px)!important;
+}

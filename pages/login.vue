@@ -14,26 +14,189 @@
       <div class="login-wrap">
         <div class="gnb">
           <img  @click="routerPush('/')" src="~assets/img/icon/i-close.png" class="icon-close">
+          <div v-if="slideTarget>0" class="progress-wrap">
+            <div class="progress" :style="{ width: ((slideTarget)*25)+'%' }"></div>
+          </div>
         </div>
+
+        <!-- <div class="slide-wrap">
+          <div class="slide-1">
+            <p class="form-title">Log in</p>
+            <input class="form" type="text" placeholder="Enter your email">
+            <input class="form form-last" type="password" placeholder="Enter your password">
+            <p class="find-pw">
+              Forgot your password?
+              <span class="find-pw-link">Find password</span>
+            </p>
+            <button class="ai-btn">Log in</button>
+            <p class="info-save">
+              <img src="~assets/img/icon/i-check.png" class="icon-check">
+              Save login information
+            </p>
+            <div class="social-login">
+              <div class="btn-login" style="">
+                <img src="~assets/img/icon/social-google.png" class="icon">
+                Log in with Google
+              </div>
+              <div class="btn-login" style="border-left: 1px solid #3c3c3c; text-align: right; padding-left: 5px;">
+                <img src="~assets/img/icon/social-facebook.png" class="icon">
+                Log in with Facebook
+              </div>
+            </div>
+            <p class="comment">Sign up and make a video!</p>
+            <button class="ai-btn ai-btn-gray">Sign Up</button>
+          </div>
+        </div> -->
+
+        <carousel class="slide-wrap" :per-page="1" :value="slideTarget" :paginationEnabled="false" :mouse-drag="false">
+          <slide class="slide-1">
+            <p class="form-title">Log in</p>
+            <input class="form" type="text" placeholder="Enter your email">
+            <input class="form form-last" type="password" placeholder="Enter your password">
+            <p class="find-pw">
+              Forgot your password?
+              <span class="find-pw-link">Find password</span>
+            </p>
+            <button class="ai-btn">Log in</button>
+            <p class="info-save">
+              <img src="~assets/img/icon/i-check.png" class="icon-check">
+              Save login information
+            </p>
+            <div class="social-login">
+              <div class="btn-login" style="">
+                <img src="~assets/img/icon/social-google.png" class="icon">
+                Log in with Google
+              </div>
+              <div class="btn-login" style="border-left: 1px solid #3c3c3c; text-align: right; padding-left: 5px;">
+                <img src="~assets/img/icon/social-facebook.png" class="icon">
+                Log in with Facebook
+              </div>
+            </div>
+            <p class="comment">Sign up and make a video!</p>
+            <button @click="slideTarget=1" class="ai-btn ai-btn-gray">Sign Up</button>
+          </slide>
+
+          <slide class="slide-2">
+            <div class="slide-title">
+              <img @click="slideTarget=0" src="~assets/img/icon/left-arrow.png" class="icon-back">
+              <div class="title">Sign up</div>
+              <div class="explain">Member category selection</div>
+            </div>
+            <div class="select-wrap">
+              <div @click="slideTarget=2" class="select select-1">
+                <p class="title">Individual</p>
+                <p class="sub">Individual members who want to<br/> create their own videos</p>
+              </div>
+              <div @click="toggleAlert()" class="select select-2">
+                <p class="title">Corporate member</p>
+                <p class="sub">Corporate members who want to<br/> make videos together</p>
+              </div>
+            </div>
+          </slide>
+
+          <slide class="slide-3">
+            <div class="slide-title">
+              <img @click="slideTarget=1" src="~assets/img/icon/left-arrow.png" class="icon-back">
+              <div class="title">Sign up</div>
+              <div class="explain">Individual</div>
+            </div>
+            <p class="info info-1">Social membership</p>
+            <button class="btn-social">
+              <img src="~assets/img/icon/social-google.png" class="icon">
+              Log in with Google
+            </button>
+            <button class="btn-social">
+              <img src="~assets/img/icon/social-facebook-f.png" class="icon">
+              Log in with Facebook
+            </button>
+            <p class="info info-2">Individual membership</p>
+            <div class="form-email-check">
+              <input v-model="select.email" class="form" type="text" placeholder="Enter your email(ID)">
+              <button class="btn-check" :class="{'btn-check-active':select.email.length>0}">Check</button>
+            </div>
+            <p class="info info-3">*After signing up, you must verify<br/>your identity via email to use the service.</p>
+            <button @click="slideTarget=3" :disabled="select.email.length<1" :class="{'ai-btn-disabled':select.email.length<1}" class="ai-btn">Next</button>
+          </slide>
+
+          <slide class="slide-4">
+            <div class="slide-title">
+              <img @click="slideTarget=2" src="~assets/img/icon/left-arrow.png" class="icon-back">
+              <div class="title">Sign up</div>
+              <div class="explain">Individual</div>
+            </div>
+            <input v-model="password.pw" class="form" type="text" placeholder="Enter password">
+            <p class="rules">* 8-16 characters (upper&lowercase), numbers, symbols</p>
+            <input v-model="password.pwc" class="form" type="text" placeholder="Vertify password">
+            <p class="rules">* Enter the same password</p>
+            <div class="select-wrap">
+              <div class="select-header">
+                <p class="title">Purpose of video production</p>
+                <p class="tag">*Multiple</p>
+              </div>
+              <div class="select-list">
+                <div class="select">Promotion</div>
+                <div class="select">Interest</div>
+                <div class="select">Vlog</div>
+                <div class="select">Others</div>
+              </div>
+            </div>
+            <div class="select-wrap">
+              <div class="select-header">
+                <p class="title">Terms and conditions</p>
+                <p class="tag">View ></p>
+              </div>
+              <p class="agree-check">
+                <img src="~assets/img/icon/i-check.png" class="icon-check">
+                Save login information
+              </p>
+            </div>
+            <button @click="routerPush('/')" :disabled="password.pw.length<1" :class="{'ai-btn-disabled':password.pw.length<1}" class="ai-btn">Sign-up</button>
+          </slide>
+
+          <slide class="slide-5">
+            slide 5
+          </slide>
+        </carousel>
       </div>
     </div>
 
     <Footer/>
+    <Alert/>
   </div>
 </template>
 
 <script>
 import common from '~/mixins/common.js';
+import Vue from 'vue';
+import VueCarousel from 'vue-carousel';
+import { Carousel, Slide } from 'vue-carousel';
+Vue.use(VueCarousel);
+
 export default {
   mixins: [common],
+  components: {
+    Carousel,
+    Slide
+  },
   data: () => ({
-
+    slideTarget: 0,
+    emailValid: false,
+    select: {
+      email: '123',
+      emailValid: false,
+    },
+    password: {
+      pw: '123',
+      pwc: '123'
+    }
   }),
   mounted() {
 
   },
   methods: {
-
+    toggleAlert() {
+      this.$store.commit('Alert/toggleAlert');
+    }
   }
 }
 </script>

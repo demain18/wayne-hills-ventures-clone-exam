@@ -25,4 +25,4 @@
     </div>
 </template>
 
-<style scoped src="~/assets/css/index.css"></style>s
+<style scoped src="~/assets/css/index.css"></style>
