@@ -18,3 +18,7 @@ input, button {
   box-shadow: none;
   padding: 0;
 }
+
+a {
+  text-decoration: none;
+}

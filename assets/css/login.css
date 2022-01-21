@@ -1,0 +1,44 @@
+#gnb {
+  height: 180px;
+}
+
+#gnb .logo-wrap img.logo {
+  width: 220px;
+  height: 98px;
+}
+
+#cnt {
+  min-height: calc(100vh - 180px);
+}
+
+
+
+/* Login */
+
+#cnt .login-wrap {
+  width: 440px;
+  height: 620px;
+  border-radius: 8px;
+  background-color: #111111e6;
+  position: relative;
+  margin: 0 auto;
+  /* padding: 65px 60px; */
+  box-sizing: border-box;
+  top: 175px;
+}
+
+#cnt .login-wrap .gnb {
+  width: 100%;
+  height: 60px;
+  /* padding: 30px; */
+  /* border: 1px solid blue; */
+  box-sizing: border-box;
+}
+
+#cnt .login-wrap .gnb img.icon-close {
+  width: 28px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}

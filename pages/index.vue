@@ -1,6 +1,6 @@
 <template>
   <div>
-    <video id="bg-video" autoplay muted>
+    <video id="bg-video" autoplay muted loop>
       <source src="~assets/video/bg.mp4" type="video/mp4">
     </video>
     
@@ -10,7 +10,7 @@
       </div>
       <div class="btn-wrap">
         <button class="btn btn-sign-up">Sign Up</button>
-        <button class="btn btn-login">Log in <img src="~assets/img/icon/profile.png" class="icon"> </button>
+        <button @click="routerPush('/login')" class="btn btn-login">Log in <img src="~assets/img/icon/profile.png" class="icon"></button>
       </div>
     </div>
 
@@ -31,36 +31,14 @@
       </div> 
     </div>
 
-    <div id="ftr">
-      <div class="content-wrap">
-        <div class="col">
-          <img src="~assets/img/logo-footer.png" class="logo">
-          <div class="sns-wrap">
-            <img src="~assets/img/icon/i-sns-facebook.png" class="icon">
-            <img src="~assets/img/icon/i-sns-youtube.png" class="icon">
-            <img src="~assets/img/icon/i-sns-instagram.png" class="icon">
-          </div>
-        </div>
-        <div class="col">
-          Waynehills Ventures, 2F Pinescare 3, 11, Magokjungang 8-ro 5-gil, Gangseo-gu, Seoul &nbsp;|&nbsp; CRN : 547-87-01358 &nbsp;|&nbsp; Founder : Lee Su-min
-        </div>
-        <div class="col">
-          <img src="~assets/img/icon/i-copyright.png" class="icon-copyright">
-          Copyright 2021 waynehills ventures all rights reserved &nbsp;|&nbsp; Terms and conditions &nbsp;|&nbsp; e-mail:waynehills.ventures@gmail.com &nbsp;|&nbsp; Powered by Shutterstock
-        </div>
-        <div class="select-lang">
-          <img src="~assets/img/icon/i-global.png" class="icon">
-          <div class="lang">English</div>
-          <img src="~assets/img/icon/i-down-arrow.png" class="icon-arrow">
-        </div>
-      </div>
-    </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import "~/assets/css/index.css";
+import common from '~/mixins/common.js';
 export default {
+  mixins: [common],
   data: () => ({
 
   }),
@@ -68,9 +46,9 @@ export default {
 
   },
   methods: {
-    // async api() {
-
-    // }
+    
   }
 }
 </script>
+
+<style scoped src="~/assets/css/index.css"></style>
