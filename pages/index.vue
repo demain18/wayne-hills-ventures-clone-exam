@@ -1,7 +1,7 @@
 <template>
   <div>
     <video id="bg-video" autoplay muted loop>
-      <source src="~assets/video/bg.mp4" type="video/mp4">
+      <!-- <source src="~assets/video/bg.mp4" type="video/mp4"> -->
     </video>
     
     <div id="gnb">
@@ -9,8 +9,8 @@
         <img src="~assets/img/logo-header.png" class="logo">
       </div>
       <div class="btn-wrap">
-        <button class="btn btn-sign-up">Sign Up</button>
-        <button @click="routerPush('/login')" class="btn btn-login">Log in <img src="~assets/img/icon/profile.png" class="icon"></button>
+        <button @click="eventSignUp()" class="btn btn-sign-up">Sign Up</button>
+        <button @click="eventLogIn()" class="btn btn-login">Log in <img src="~assets/img/icon/profile.png" class="icon"></button>
       </div>
     </div>
 
@@ -37,6 +37,10 @@
 
 <script>
 import common from '~/mixins/common.js';
+import Vue from 'vue'
+import VueCookies from 'vue-cookies'
+Vue.use(VueCookies)
+
 export default {
   mixins: [common],
   data: () => ({
@@ -46,7 +50,14 @@ export default {
 
   },
   methods: {
-    
+    eventSignUp() {
+      $cookies.set('loginStep', 1);
+      this.routerPush('/login');
+    },
+    eventLogIn() {
+      $cookies.set('loginStep', 0);
+      this.routerPush('/login');
+    }
   }
 }
 </script>

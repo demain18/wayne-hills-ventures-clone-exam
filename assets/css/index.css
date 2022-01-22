@@ -158,7 +158,7 @@
   background-color: #111111e4;
   color: #aaa;
   height: 170px;
-  position: fixed;
+  position: absolute;
   bottom: 0px;
   width: 100%;
 }
