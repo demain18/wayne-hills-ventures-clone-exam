@@ -1,5 +1,5 @@
 <template>
-  <div id="alert" :class="{'alert-display':alertDisplay}">
+  <div id="alert" :class="{'alert-display':alertDisplay}" :style="{backgroundColor: bgColor}">
     {{ comment }}
   </div>
 </template>
@@ -16,6 +16,9 @@ export default {
   data: () => ({
     // alertDisplay: false
     // comment: 'comming soon.'
+
+    // bgColor: '#650aa8',
+    bgColor: '#ff5f0a',
   }),
   mounted() {
 

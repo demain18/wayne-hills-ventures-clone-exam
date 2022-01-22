@@ -12,4 +12,10 @@ export const mutations = { // update state
   toggleAlert: (state) => {
     state.alert = !state.alert
   },
+  openAlert: (state) => {
+    state.alert = true
+  },
+  closeAlert: (state) => {
+    state.alert = false
+  },
 }

@@ -154,7 +154,7 @@
     </div>
 
     <Footer/>
-    <Alert/>
+    <Alert comment="Comming soon" />
   </div>
 </template>
 
@@ -215,7 +215,7 @@ export default {
   },
   methods: {
     toggleAlert() {
-      this.$store.commit('Alert/toggleAlert');
+      this.$store.commit('Alert/openAlert');
     },
     signUpCalc() {
       return true;
