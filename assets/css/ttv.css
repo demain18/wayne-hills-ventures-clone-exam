@@ -151,6 +151,27 @@ body {
   font-weight: 500;
 }
 
+#cnt .cnt-wrap .header-wrap button.ai-btn-download {
+  max-width: 80px!important;
+}
+
+#cnt .cnt-wrap .header-wrap button.ai-btn-download img.icon-download {
+  width: 30px;
+  margin-top: 5px;
+}
+
+#cnt .cnt-wrap .header-wrap button.ai-btn-youtube {
+  max-width: 150px;
+  background-color: #333!important;
+  margin-right: 10px;
+}
+
+#cnt .cnt-wrap .header-wrap button.ai-btn-youtube img.icon {
+  width: 100px;
+  height: 24px;
+  margin-top: 8px;
+}
+
 
 
 /* Content Wrap */

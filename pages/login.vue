@@ -138,11 +138,11 @@
               </div>
               <p @click="check.signUpAgree = !check.signUpAgree" v-if="check.signUpAgree" class="agree-check">
                 <img src="~assets/img/icon/i-check-active.png" class="icon-check">
-                Save login information
+                I agree to all terms and conditions for TTV A.I.
               </p>
               <p @click="check.signUpAgree = !check.signUpAgree" v-else class="agree-check">
                 <img src="~assets/img/icon/i-check.png" class="icon-check">
-                Save login information
+                I agree to all terms and conditions for TTV A.I.
               </p>
             </div>
             <button @click="routerPush('/ttv')" :disabled="password.pw.length<1" :class="{'ai-btn-disabled':password.pw.length<1}" class="ai-btn">Sign-up</button>

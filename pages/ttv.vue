@@ -25,9 +25,17 @@
               </div>
             </transition>
           </div>
+
+          <button v-if="itemNow==2" class="ai-btn ai-btn-youtube">
+            <img src="~assets/img/icon/i-upload-youtube.png" class="icon">
+          </button>
+
           <button v-if="itemNow==0" @click="eventNext(itemNow)" class="ai-btn">Next</button>
           <button v-else-if="itemNow==1" @click="itemNow = 2" class="ai-btn">Next</button>
-          <button v-else-if="itemNow==2" class="ai-btn">Download</button>
+
+          <button v-else-if="itemNow==2" class="ai-btn ai-btn-download">
+            <img src="~assets/img/icon/i-download-video.png" class="icon-download">
+          </button>
         </div>
 
         <div v-if="itemNow==0" class="content-wrap content-wrap-1">
